@@ -211,6 +211,21 @@ public class DateUtil {
 		int daysInt = Integer.parseInt(days);
 
 		Calendar canlendar = Calendar.getInstance(); // java.util包
+
+		canlendar.add(Calendar.DATE, daysInt); // 日期减 如果不够减会将月变动
+		Date date = canlendar.getTime();
+
+		SimpleDateFormat sdfd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String dateStr = sdfd.format(date);
+
+		return dateStr;
+	}
+
+	public static String getAfterDayDateWith(Date start, String days) {
+		int daysInt = Integer.parseInt(days);
+
+		Calendar canlendar = Calendar.getInstance(); // java.util包
+		canlendar.setTime(start);
 		canlendar.add(Calendar.DATE, daysInt); // 日期减 如果不够减会将月变动
 		Date date = canlendar.getTime();
 
