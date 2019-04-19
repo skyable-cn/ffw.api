@@ -374,6 +374,18 @@ public class DateUtil {
 
 	}
 
+	public static int getWeek() {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(new Date());
+		int w = 0;
+		if (cal.get(Calendar.DAY_OF_WEEK) == 1) {
+			w = 7;
+		} else {
+			w = cal.get(Calendar.DAY_OF_WEEK) - 1;
+		}
+		return w;
+	}
+
 	public static void main(String[] args) {
 		System.out.println(getFirstDayOfMonth(2018, 1));
 		System.out.println(getLastDayOfMonth(2018, 2));
